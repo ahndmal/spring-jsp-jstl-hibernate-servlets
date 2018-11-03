@@ -1,6 +1,5 @@
 package com.bh.udemy.spring;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +19,6 @@ public class CustomerController {
     public void initBinder(WebDataBinder webDataBinder) {
 
         StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
-
         webDataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
     }
 
@@ -34,6 +32,8 @@ public class CustomerController {
 
     @RequestMapping("/processForm")
     public String processForm(@Valid @ModelAttribute("customer")Customer customer, BindingResult bindingResult) {
+
+        System.out.println("Binding result" + bindingResult);
 
         if(bindingResult.hasErrors()) {
 

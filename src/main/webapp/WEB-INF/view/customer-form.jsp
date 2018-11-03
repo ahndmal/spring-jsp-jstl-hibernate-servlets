@@ -18,14 +18,21 @@
 </head>
 <body>
 <form:form action="processForm" modelAttribute="customer">
+
     First name: <form:input path="firstName" />
     <br>
-    Free passes: <form:input path="freePasses" />
+    Free passes (*): <form:input path="freePasses" />
     <form:errors path="freePasses" cssClass="errors" />
+    <br>
+
+    Postal Code: <form:input path="postalCode" />
+    <form:errors path="postalCode" cssClass="errors" />
+
     <br>
     Last name (*): <form:input path="lastName" />
     <form:errors path="lastName" cssClass="errors" />
     <input type="submit" value="Submit">
+
 </form:form>
 </body>
 </html>
