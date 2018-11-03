@@ -5,13 +5,25 @@ import javax.validation.ConstraintValidatorContext;
 
 public class CourseCodeConstraintValidator implements ConstraintValidator<CourseCode, String> {
 
-    @Override
-    public void initialize(CourseCode constraintAnnotation) {
+    private String coursePrefix;
 
+    @Override
+    public void initialize(CourseCode theCourseCode) {
+
+        theCourseCode.value();
     }
 
     @Override
-    public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-        return false;
+    public boolean isValid(String theCode, ConstraintValidatorContext constraintValidatorContext) {
+
+        boolean result;
+
+        if (theCode != null) {
+            result = theCode.startsWith(coursePrefix);
+        } else {
+            return true;
+        }
+
+        return result;
     }
 }

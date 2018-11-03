@@ -29,6 +29,10 @@
     <form:errors path="postalCode" cssClass="errors" />
 
     <br>
+    Course code: <form:input path="courseCode" />
+    <form:errors path="courseCode" cssClass="errors" />
+
+    <br>
     Last name (*): <form:input path="lastName" />
     <form:errors path="lastName" cssClass="errors" />
     <input type="submit" value="Submit">

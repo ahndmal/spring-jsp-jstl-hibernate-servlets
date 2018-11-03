@@ -1,5 +1,7 @@
 package com.bh.udemy.spring;
 
+import com.bh.udemy.spring.validation.CourseCode;
+
 import javax.validation.constraints.*;
 
 public class Customer {
@@ -14,6 +16,9 @@ public class Customer {
     @Min(value = 0, message = "must be more than 0")
     @Max(value = 10, message = "must be less than 10")
     private Integer freePasses;
+
+    @CourseCode(value = "TOPS", message = "must start with TOPS")
+    private String courseCode;
 
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 chars/digits")
     private String postalCode;
@@ -48,5 +53,13 @@ public class Customer {
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
+    }
+
+    public String getCourseCode() {
+        return courseCode;
+    }
+
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
     }
 }
