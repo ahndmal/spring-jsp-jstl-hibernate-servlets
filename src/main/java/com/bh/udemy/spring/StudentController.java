@@ -14,7 +14,7 @@ public class StudentController {
 
         Student student = new Student();
 
-            theModel.addAttribute("student", student);
+        theModel.addAttribute("student", student);
 
         return "student-form";
     }
